@@ -71,4 +71,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'instaflutter-a15a8.appspot.com',
     iosBundleId: 'com.example.instaflutter',
   );
+
 }
