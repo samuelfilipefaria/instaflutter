@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:instaflutter/services/firebase_auth.dart';
+import 'package:instaflutter/screens/buttons.dart';
+import 'package:instaflutter/screens/feed.dart';
+import 'package:instaflutter/styles/colors.dart';
 import 'firebase_options.dart';
-import 'home.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -20,10 +23,11 @@ class MyApp extends StatelessWidget {
       title: "Template",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: light,
         primarySwatch: Colors.amber,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white, centerTitle: true)
+        appBarTheme: const AppBarTheme(backgroundColor: light, centerTitle: true)
       ),
-      home: const Home(),
+      home: isLoggedIn() ? const Feed() : const Buttons(),
     );
   }
 }
