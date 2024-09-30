@@ -36,9 +36,12 @@ class _SingupState extends State<Singup> {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: ActionButton(label: "Sing up", action: () => {
-                  singup(context, _emailController.text, _passwordController.text)
-                },),
+                child: ActionButton(
+                  label: "Sing up",
+                  action: () => {
+                    singup(context, _emailController.text, _passwordController.text)
+                  }
+                ),
               )
             ],
           ),

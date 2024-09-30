@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
           height: 500,
           child: Column(
             children: [
-              const Text("Log in", style: TextStyle(fontSize: 20),),
+              const Text("Log in", style: TextStyle(fontSize: 20)),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: TextInput(label: "E-mail", autofocusEnabled: true, controller: _emailController,)
@@ -36,9 +36,11 @@ class _LoginState extends State<Login> {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: ActionButton(label: "Log in", action: () => {
-                  login(context, _emailController.text, _passwordController.text)
-                },),
+                child: ActionButton(
+                  label: "Log in", action: () => {
+                    login(context, _emailController.text, _passwordController.text)
+                  }
+                ),
               )
             ],
           ),
