@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983165322014",
+    "project_id": "instaflutter-a15a8",
+    "storage_bucket": "instaflutter-a15a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983165322014:android:99ff2b4ca358052a22ff0f",
+        "android_client_info": {
+          "package_name": "com.example.instaflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuOsdGYnGP-rajfKMx9AL4p0BEOlD69_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
