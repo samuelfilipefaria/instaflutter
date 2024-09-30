@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:instaflutter/utils/messages.dart';
+import 'package:instaflutter/main.dart';
+import 'package:instaflutter/utils.dart';
 
 Future<void> singup(BuildContext context, String email, String password) async {
   try {
@@ -10,6 +11,7 @@ Future<void> singup(BuildContext context, String email, String password) async {
     );
 
     showSnackBar(context, 'Account created successfully!!');
+    goTo(context, const MyApp());
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
       showSnackBar(context, 'The password provided is too weak.');
@@ -27,6 +29,9 @@ Future<void> login(BuildContext context, String email, String password) async {
       email: email,
       password: password
     );
+
+    showSnackBar(context, 'Successfully logged in!!');
+    goTo(context, const MyApp());
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
       showSnackBar(context, 'No user found for that email.');
@@ -36,8 +41,28 @@ Future<void> login(BuildContext context, String email, String password) async {
   }
 }
 
-Future<void> logout() async {
+Future<void> logout(BuildContext context) async {
   await FirebaseAuth.instance.signOut();
+
+  showSnackBar(context, 'Successfully logged out!!');
+  goTo(context, const MyApp());
+}
+
+Future<void> editAccount(BuildContext context, String email, String password) async {
+  User? user = getCurrentUser();
+  await user?.verifyBeforeUpdateEmail(email);
+  await user?.updatePassword(password);
+
+  showSnackBar(context, 'Successfully edited!!');
+  goTo(context, const MyApp());
+}
+
+Future<void> deleteAccount(BuildContext context) async {
+  User? user = getCurrentUser();
+  await user?.delete();
+
+  showSnackBar(context, 'Successfully deleted!!');
+  goTo(context, const MyApp());
 }
 
 bool isLoggedIn() {
@@ -46,4 +71,8 @@ bool isLoggedIn() {
   } else {
     return false;
   }
+}
+
+User? getCurrentUser() {
+  return FirebaseAuth.instance.currentUser;
 }
