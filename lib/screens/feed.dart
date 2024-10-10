@@ -31,7 +31,7 @@ class _FeedState extends State<Feed> {
       appBar: const TopAppBar(showAccountButton: true),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(80.0),
+        padding: const EdgeInsets.all(50.0),
         child: FloatingActionButton(
           backgroundColor: primary,
           foregroundColor: light,
@@ -47,8 +47,13 @@ class _FeedState extends State<Feed> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 50),
-          child: Column(
-            children: posts
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 1,
+            child: SingleChildScrollView(
+              child: Column(
+                children: posts,
+              ),
+            ),
           ),
         ),
       ),
