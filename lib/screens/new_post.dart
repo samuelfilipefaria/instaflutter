@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:instaflutter/services/firebase_storage.dart';
-import 'package:instaflutter/styles/colors.dart';
 import 'package:instaflutter/widgets/action_button.dart';
 import 'package:instaflutter/widgets/text_input.dart';
 import 'package:instaflutter/widgets/top_app_bar.dart';

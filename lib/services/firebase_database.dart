@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:instaflutter/main.dart';
 import 'package:instaflutter/services/firebase_auth.dart';
 import 'package:instaflutter/utils.dart';
-import 'package:instaflutter/widgets/post.dart';
 
 FirebaseFirestore db = FirebaseFirestore.instance;
 
